@@ -204,12 +204,12 @@
           </li>
           <li class="l-section section">
             <div class="hire">
-              <h2>You want us to do</h2>
+              <h2>¿Qué podemos hacer por usted?</h2>
               <!-- checkout formspree.io for easy form setup -->
-              <form class="work-request">
+              <form class="work-request" id="formulario_correo">
                 <div class="work-request--options">
                   <span class="options-a">
-                    <input id="opt-1" type="checkbox" value="app design">
+                    <input id="opt-1" type="checkbox" value="software a la medida">
                     <label for="opt-1">
                       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                       viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
@@ -217,9 +217,9 @@
                         <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
                       </g>
                       </svg>
-                      App Design
+                      Software a la medida
                     </label>
-                    <input id="opt-2" type="checkbox" value="graphic design">
+                    <input id="opt-2" type="checkbox" value="conferencia">
                     <label for="opt-2">
                       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                       viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
@@ -227,9 +227,9 @@
                         <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
                       </g>
                       </svg>
-                      Graphic Design
+                      Conferencia
                     </label>
-                    <input id="opt-3" type="checkbox" value="motion design">
+                    <input id="opt-3" type="checkbox" value="taller empresarial">
                     <label for="opt-3">
                       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                       viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
@@ -237,11 +237,11 @@
                         <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
                       </g>
                       </svg>
-                      Motion Design
+                      Taller empresarial
                     </label>
                   </span>
-                  <span class="options-b">
-                    <input id="opt-4" type="checkbox" value="ux design">
+                  <span class="options-a">
+                    <input id="opt-4" type="checkbox" value="taller educativo">
                     <label for="opt-4">
                       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                       viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
@@ -249,9 +249,9 @@
                         <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
                       </g>
                       </svg>
-                      UX Design
+                      Taller educativo
                     </label>
-                    <input id="opt-5" type="checkbox" value="webdesign">
+                    <input id="opt-5" type="checkbox" value="app movil">
                     <label for="opt-5">
                       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                       viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
@@ -259,9 +259,9 @@
                         <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
                       </g>
                       </svg>
-                      Webdesign
+                      App Móvil
                     </label>
-                    <input id="opt-6" type="checkbox" value="marketing">
+                    <input id="opt-6" type="checkbox" value="solucion startup">
                     <label for="opt-6">
                       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                       viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
@@ -269,21 +269,53 @@
                         <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
                       </g>
                       </svg>
-                      Marketing
+                      Solución para Startup
+                    </label>
+                    </span>
+                    <span class="options-a">
+                    <input id="opt-7" type="checkbox" value="asesoria">
+                    <label for="opt-7">
+                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                      viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
+                      <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
+                        <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
+                      </g>
+                      </svg>
+                      Asesoría
+                    </label>
+                    <input id="opt-8" type="checkbox" value="red empresarial">
+                    <label for="opt-8">
+                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                      viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
+                      <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
+                        <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
+                      </g>
+                      </svg>
+                      Red empresarial
+                    </label>
+                    <input id="opt-9" type="checkbox" value="implementacion hardware">
+                    <label for="opt-9">
+                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                      viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
+                      <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
+                        <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
+                      </g>
+                      </svg>
+                      Implement. hardware
                     </label>
                   </span>
                 </div>
                 <div class="work-request--information">
                   <div class="information-name">
-                    <input id="name" type="text" spellcheck="false">
-                    <label for="name">Name</label>
+                    <input id="name_cliente" type="text" spellcheck="false">
+                    <label for="name_cliente">Nombre</label>
                   </div>
                   <div class="information-email">
                     <input id="email" type="email" spellcheck="false">
-                    <label for="email">Email</label>
+                    <label for="email">e-mail</label>
                   </div>
                 </div>
-                <input type="submit" value="Send Request">
+                <input type="submit" value="Enviar solicitud">
               </form>
             </div>
           </li>
@@ -306,6 +338,23 @@
 </body>
 
 <script type="text/javascript">
+
+$('#formulario_correo').on('submit', function(event){
+  event.preventDefault();
+  //obteniendo los valores de todos los checkbox checkeados
+  var servicios_elegidos='';
+  $.each($("#formulario_correo :checked"), function(){            
+    servicios_elegidos+=$(this).val()+',';
+  });
+  if (servicios_elegidos===''){
+    alert('Debe elegir por lo menos un servicio');
+  }
+  else {
+    console.log("form submitted!");  // sanity check
+    enviar_correo($('#email').val(),$('#name_cliente').val(),servicios_elegidos);
+  }  
+});
+
 function enviar_correo(email_cliente,nombre_cliente,servicios_cliente) {
   $.ajax({
     url : "correo/", // La URL que llama a la vista
