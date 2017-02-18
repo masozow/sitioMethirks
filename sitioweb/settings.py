@@ -10,6 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
+
+from .email_info import EMAIL_USE_TLS,EMAIL_HOST,EMAIL_HOST_USER,EMAIL_HOST_PASSWORD,EMAIL_PORT
+
+#EMAIL_BACKEND=EMAIL_BACKEND
+EMAIL_USE_TLS=EMAIL_USE_TLS
+EMAIL_HOST=EMAIL_HOST
+EMAIL_HOST_USER=EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD=EMAIL_HOST_PASSWORD
+EMAIL_PORT=EMAIL_PORT
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
@@ -27,8 +37,34 @@ SECRET_KEY = '0+=$_qf046@cr1qk%v12$1mqgeh^n)jzk^y@=-80pzka@vdw%5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','methriks.pythonanywhere.com','127.0.0.1']
 
+
+#Archivo log
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+        },
+    },
+    'loggers': {
+        'kadoshapp': { # for your app
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django': { # for all django-internal messages
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 # Application definition
 
@@ -66,6 +102,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
             ],
         },
     },
