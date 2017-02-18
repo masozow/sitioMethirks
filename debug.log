@@ -261,3 +261,16 @@ Not Found: /assets/img/logo.png
 (0.002) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
 (0.002) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
 Not Found: /assets/img/logo.png
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Forbidden (CSRF token missing or incorrect.): /correo/
+Not Found: /assets/img/logo.png
+Internal Server Error: /correo/
+Traceback (most recent call last):
+  File "/home/developer/methriksWeb/mvenv/lib/python3.4/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/developer/methriksWeb/pagina/views.py", line 11, in correo_electronico
+    form_contacto=Form_Contacto(request.POST) #se obtiene el formulario que vino con el request
+NameError: name 'Form_Contacto' is not defined

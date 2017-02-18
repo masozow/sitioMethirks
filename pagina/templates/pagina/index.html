@@ -346,6 +346,7 @@ $('#formulario_correo').on('submit', function(event){
   $.each($("#formulario_correo :checked"), function(){            
     servicios_elegidos+=$(this).val()+',';
   });
+  console.log(servicios_elegidos);
   if (servicios_elegidos===''){
     alert('Debe elegir por lo menos un servicio');
   }
@@ -361,7 +362,7 @@ function enviar_correo(email_cliente,nombre_cliente,servicios_cliente) {
     type : "POST", // Metodo http para realizar el request (peticion al servidor)
     data : { correo_electronico : email_cliente, nombre: nombre_cliente, servicios: servicios_cliente}, // Datos enviados con el request en formato JSON
     success : function(json) {
-      .each(json, function(key,value) {
+      $.each(json, function(key,value) {
         alert(value)
       });
     },
@@ -373,4 +374,5 @@ function enviar_correo(email_cliente,nombre_cliente,servicios_cliente) {
   });
 };
 </script>
+<script type="text/javascript" src="{% static 'js/token.js' %}"></script>
 </html>
