@@ -237,3 +237,7 @@ Not Found: /assets/img/logo.png
 Not Found: /favicon.ico
 Not Found: /favicon.ico
 Not Found: /assets/img/logo.png
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png

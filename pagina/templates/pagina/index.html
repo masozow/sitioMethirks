@@ -304,4 +304,24 @@
 <script>window.jQuery || document.write('<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"><\/script>')</script>
 <script src= "{% static 'js/functions-min.js' %}"></script>
 </body>
+
+<script type="text/javascript">
+function enviar_correo(email_cliente,nombre_cliente,servicios_cliente) {
+  $.ajax({
+    url : "correo/", // La URL que llama a la vista
+    type : "POST", // Metodo http para realizar el request (peticion al servidor)
+    data : { correo_electronico : email_cliente, nombre: nombre_cliente, servicios: servicios_cliente}, // Datos enviados con el request en formato JSON
+    success : function(json) {
+      .each(json, function(key,value) {
+        alert(value)
+      });
+    },
+    error : function(xhr,errmsg,err) {
+      $('#results').html("<div class='alert-box alert radius' data-alert>¡Oops! Ha ocurrido un error: "+errmsg+
+                         " <a href='#' class='close'>&times;</a></div>");
+      console.log(xhr.status + ": " + xhr.responseText); // Se envia el codigo del status y el texto que ha devuelto el response
+    }
+  });
+};
+</script>
 </html>
