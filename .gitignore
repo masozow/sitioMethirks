@@ -3,7 +3,10 @@ __pycache__
 mvenv
 db.sqlite3
 .DS_Store
+<<<<<<< HEAD
 pyvirtual
 debug.log
 sitioweb/debug.log
 *.log
+pyvirtual
+
