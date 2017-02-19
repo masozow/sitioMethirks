@@ -352,6 +352,8 @@ $('#formulario_correo').on('submit', function(event){
   }
   else {
     console.log("form submitted!");  // sanity check
+    console.log($('#email').val());
+    console.log($('#name_cliente').val());
     enviar_correo($('#email').val(),$('#name_cliente').val(),servicios_elegidos);
   }  
 });
