@@ -666,3 +666,292 @@ TypeError: Can't convert 'NameError' object to str implicitly
 (0.000) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
 (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
 (0.000) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+(0.001) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+CREATE TABLE "django_migrations" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" datetime NOT NULL); (params None)
+(0.024) QUERY = 'CREATE TABLE "django_migrations" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" datetime NOT NULL)' - PARAMS = (); args=None
+(0.000) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+(0.001) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+CREATE TABLE "django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); (params None)
+(0.001) QUERY = 'CREATE TABLE "django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL)' - PARAMS = (); args=None
+CREATE TABLE "django_content_type__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, UNIQUE ("app_label", "model")); (params None)
+(0.000) QUERY = 'CREATE TABLE "django_content_type__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, UNIQUE ("app_label", "model"))' - PARAMS = (); args=None
+INSERT INTO "django_content_type__new" ("id", "app_label", "name", "model") SELECT "id", "app_label", "name", "model" FROM "django_content_type"; (params [])
+(0.000) QUERY = 'INSERT INTO "django_content_type__new" ("id", "app_label", "name", "model") SELECT "id", "app_label", "name", "model" FROM "django_content_type"' - PARAMS = (); args=[]
+DROP TABLE "django_content_type"; (params [])
+(0.013) QUERY = 'DROP TABLE "django_content_type"' - PARAMS = (); args=[]
+ALTER TABLE "django_content_type__new" RENAME TO "django_content_type"; (params [])
+(0.000) QUERY = 'ALTER TABLE "django_content_type__new" RENAME TO "django_content_type"' - PARAMS = (); args=[]
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('contenttypes', '0001_initial', '2017-02-19 03:52:33.686532'); args=['contenttypes', '0001_initial', '2017-02-19 03:52:33.686532']
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+CREATE TABLE "auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"), "codename" varchar(100) NOT NULL, UNIQUE ("content_type_id", "codename")); (params None)
+(0.001) QUERY = 'CREATE TABLE "auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"), "codename" varchar(100) NOT NULL, UNIQUE ("content_type_id", "codename"))' - PARAMS = (); args=None
+CREATE TABLE "auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(80) NOT NULL UNIQUE); (params None)
+(0.004) QUERY = 'CREATE TABLE "auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(80) NOT NULL UNIQUE)' - PARAMS = (); args=None
+CREATE TABLE "auth_group_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "group_id" integer NOT NULL REFERENCES "auth_group" ("id"), "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"), UNIQUE ("group_id", "permission_id")); (params None)
+(0.000) QUERY = 'CREATE TABLE "auth_group_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "group_id" integer NOT NULL REFERENCES "auth_group" ("id"), "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"), UNIQUE ("group_id", "permission_id"))' - PARAMS = (); args=None
+CREATE TABLE "auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL); (params None)
+(0.000) QUERY = 'CREATE TABLE "auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL)' - PARAMS = (); args=None
+CREATE TABLE "auth_user_groups" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id"), "group_id" integer NOT NULL REFERENCES "auth_group" ("id"), UNIQUE ("user_id", "group_id")); (params None)
+(0.000) QUERY = 'CREATE TABLE "auth_user_groups" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id"), "group_id" integer NOT NULL REFERENCES "auth_group" ("id"), UNIQUE ("user_id", "group_id"))' - PARAMS = (); args=None
+CREATE TABLE "auth_user_user_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id"), "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"), UNIQUE ("user_id", "permission_id")); (params None)
+(0.000) QUERY = 'CREATE TABLE "auth_user_user_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id"), "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"), UNIQUE ("user_id", "permission_id"))' - PARAMS = (); args=None
+CREATE INDEX "auth_permission_417f1b1c" ON "auth_permission" ("content_type_id"); (params [])
+(0.004) QUERY = 'CREATE INDEX "auth_permission_417f1b1c" ON "auth_permission" ("content_type_id")' - PARAMS = (); args=[]
+CREATE INDEX "auth_group_permissions_0e939a4f" ON "auth_group_permissions" ("group_id"); (params [])
+(0.000) QUERY = 'CREATE INDEX "auth_group_permissions_0e939a4f" ON "auth_group_permissions" ("group_id")' - PARAMS = (); args=[]
+CREATE INDEX "auth_group_permissions_8373b171" ON "auth_group_permissions" ("permission_id"); (params [])
+(0.000) QUERY = 'CREATE INDEX "auth_group_permissions_8373b171" ON "auth_group_permissions" ("permission_id")' - PARAMS = (); args=[]
+CREATE INDEX "auth_user_groups_e8701ad4" ON "auth_user_groups" ("user_id"); (params [])
+(0.000) QUERY = 'CREATE INDEX "auth_user_groups_e8701ad4" ON "auth_user_groups" ("user_id")' - PARAMS = (); args=[]
+CREATE INDEX "auth_user_groups_0e939a4f" ON "auth_user_groups" ("group_id"); (params [])
+(0.000) QUERY = 'CREATE INDEX "auth_user_groups_0e939a4f" ON "auth_user_groups" ("group_id")' - PARAMS = (); args=[]
+CREATE INDEX "auth_user_user_permissions_e8701ad4" ON "auth_user_user_permissions" ("user_id"); (params [])
+(0.000) QUERY = 'CREATE INDEX "auth_user_user_permissions_e8701ad4" ON "auth_user_user_permissions" ("user_id")' - PARAMS = (); args=[]
+CREATE INDEX "auth_user_user_permissions_8373b171" ON "auth_user_user_permissions" ("permission_id"); (params [])
+(0.002) QUERY = 'CREATE INDEX "auth_user_user_permissions_8373b171" ON "auth_user_user_permissions" ("permission_id")' - PARAMS = (); args=[]
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.001) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('auth', '0001_initial', '2017-02-19 03:52:33.860890'); args=['auth', '0001_initial', '2017-02-19 03:52:33.860890']
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+CREATE TABLE "django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "action_time" datetime NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL, "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id"), "user_id" integer NOT NULL REFERENCES "auth_user" ("id")); (params None)
+(0.003) QUERY = 'CREATE TABLE "django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "action_time" datetime NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL, "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id"), "user_id" integer NOT NULL REFERENCES "auth_user" ("id"))' - PARAMS = (); args=None
+CREATE INDEX "django_admin_log_417f1b1c" ON "django_admin_log" ("content_type_id"); (params [])
+(0.000) QUERY = 'CREATE INDEX "django_admin_log_417f1b1c" ON "django_admin_log" ("content_type_id")' - PARAMS = (); args=[]
+CREATE INDEX "django_admin_log_e8701ad4" ON "django_admin_log" ("user_id"); (params [])
+(0.000) QUERY = 'CREATE INDEX "django_admin_log_e8701ad4" ON "django_admin_log" ("user_id")' - PARAMS = (); args=[]
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.005) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('admin', '0001_initial', '2017-02-19 03:52:33.962773'); args=['admin', '0001_initial', '2017-02-19 03:52:33.962773']
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+CREATE TABLE "django_content_type__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, "name" varchar(100) NULL, UNIQUE ("app_label", "model")); (params None)
+(0.001) QUERY = 'CREATE TABLE "django_content_type__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, "name" varchar(100) NULL, UNIQUE ("app_label", "model"))' - PARAMS = (); args=None
+INSERT INTO "django_content_type__new" ("id", "app_label", "name", "model") SELECT "id", "app_label", "name", "model" FROM "django_content_type"; (params [])
+(0.000) QUERY = 'INSERT INTO "django_content_type__new" ("id", "app_label", "name", "model") SELECT "id", "app_label", "name", "model" FROM "django_content_type"' - PARAMS = (); args=[]
+DROP TABLE "django_content_type"; (params [])
+(0.000) QUERY = 'DROP TABLE "django_content_type"' - PARAMS = (); args=[]
+ALTER TABLE "django_content_type__new" RENAME TO "django_content_type"; (params [])
+(0.000) QUERY = 'ALTER TABLE "django_content_type__new" RENAME TO "django_content_type"' - PARAMS = (); args=[]
+CREATE TABLE "django_content_type__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, UNIQUE ("app_label", "model")); (params None)
+(0.000) QUERY = 'CREATE TABLE "django_content_type__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, UNIQUE ("app_label", "model"))' - PARAMS = (); args=None
+INSERT INTO "django_content_type__new" ("id", "app_label", "model") SELECT "id", "app_label", "model" FROM "django_content_type"; (params [])
+(0.004) QUERY = 'INSERT INTO "django_content_type__new" ("id", "app_label", "model") SELECT "id", "app_label", "model" FROM "django_content_type"' - PARAMS = (); args=[]
+DROP TABLE "django_content_type"; (params [])
+(0.000) QUERY = 'DROP TABLE "django_content_type"' - PARAMS = (); args=[]
+ALTER TABLE "django_content_type__new" RENAME TO "django_content_type"; (params [])
+(0.000) QUERY = 'ALTER TABLE "django_content_type__new" RENAME TO "django_content_type"' - PARAMS = (); args=[]
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('contenttypes', '0002_remove_content_type_name', '2017-02-19 03:52:34.275988'); args=['contenttypes', '0002_remove_content_type_name', '2017-02-19 03:52:34.275988']
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+CREATE TABLE "auth_permission__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"), "codename" varchar(100) NOT NULL, "name" varchar(255) NOT NULL, UNIQUE ("content_type_id", "codename")); (params None)
+(0.002) QUERY = 'CREATE TABLE "auth_permission__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"), "codename" varchar(100) NOT NULL, "name" varchar(255) NOT NULL, UNIQUE ("content_type_id", "codename"))' - PARAMS = (); args=None
+INSERT INTO "auth_permission__new" ("id", "codename", "name", "content_type_id") SELECT "id", "codename", "name", "content_type_id" FROM "auth_permission"; (params [])
+(0.000) QUERY = 'INSERT INTO "auth_permission__new" ("id", "codename", "name", "content_type_id") SELECT "id", "codename", "name", "content_type_id" FROM "auth_permission"' - PARAMS = (); args=[]
+DROP TABLE "auth_permission"; (params [])
+(0.001) QUERY = 'DROP TABLE "auth_permission"' - PARAMS = (); args=[]
+ALTER TABLE "auth_permission__new" RENAME TO "auth_permission"; (params [])
+(0.000) QUERY = 'ALTER TABLE "auth_permission__new" RENAME TO "auth_permission"' - PARAMS = (); args=[]
+CREATE INDEX "auth_permission_417f1b1c" ON "auth_permission" ("content_type_id"); (params [])
+(0.004) QUERY = 'CREATE INDEX "auth_permission_417f1b1c" ON "auth_permission" ("content_type_id")' - PARAMS = (); args=[]
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('auth', '0002_alter_permission_name_max_length', '2017-02-19 03:52:34.417015'); args=['auth', '0002_alter_permission_name_max_length', '2017-02-19 03:52:34.417015']
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+CREATE TABLE "auth_user__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "email" varchar(254) NOT NULL); (params None)
+(0.005) QUERY = 'CREATE TABLE "auth_user__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "email" varchar(254) NOT NULL)' - PARAMS = (); args=None
+INSERT INTO "auth_user__new" ("is_superuser", "is_active", "last_login", "email", "date_joined", "is_staff", "id", "first_name", "password", "last_name", "username") SELECT "is_superuser", "is_active", "last_login", "email", "date_joined", "is_staff", "id", "first_name", "password", "last_name", "username" FROM "auth_user"; (params [])
+(0.000) QUERY = 'INSERT INTO "auth_user__new" ("is_superuser", "is_active", "last_login", "email", "date_joined", "is_staff", "id", "first_name", "password", "last_name", "username") SELECT "is_superuser", "is_active", "last_login", "email", "date_joined", "is_staff", "id", "first_name", "password", "last_name", "username" FROM "auth_user"' - PARAMS = (); args=[]
+DROP TABLE "auth_user"; (params [])
+(0.000) QUERY = 'DROP TABLE "auth_user"' - PARAMS = (); args=[]
+ALTER TABLE "auth_user__new" RENAME TO "auth_user"; (params [])
+(0.000) QUERY = 'ALTER TABLE "auth_user__new" RENAME TO "auth_user"' - PARAMS = (); args=[]
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('auth', '0003_alter_user_email_max_length', '2017-02-19 03:52:34.558340'); args=['auth', '0003_alter_user_email_max_length', '2017-02-19 03:52:34.558340']
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+CREATE TABLE "auth_user__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "username" varchar(30) NOT NULL UNIQUE); (params None)
+(0.001) QUERY = 'CREATE TABLE "auth_user__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "username" varchar(30) NOT NULL UNIQUE)' - PARAMS = (); args=None
+INSERT INTO "auth_user__new" ("is_superuser", "is_active", "last_login", "email", "date_joined", "is_staff", "id", "first_name", "password", "last_name", "username") SELECT "is_superuser", "is_active", "last_login", "email", "date_joined", "is_staff", "id", "first_name", "password", "last_name", "username" FROM "auth_user"; (params [])
+(0.000) QUERY = 'INSERT INTO "auth_user__new" ("is_superuser", "is_active", "last_login", "email", "date_joined", "is_staff", "id", "first_name", "password", "last_name", "username") SELECT "is_superuser", "is_active", "last_login", "email", "date_joined", "is_staff", "id", "first_name", "password", "last_name", "username" FROM "auth_user"' - PARAMS = (); args=[]
+DROP TABLE "auth_user"; (params [])
+(0.001) QUERY = 'DROP TABLE "auth_user"' - PARAMS = (); args=[]
+ALTER TABLE "auth_user__new" RENAME TO "auth_user"; (params [])
+(0.000) QUERY = 'ALTER TABLE "auth_user__new" RENAME TO "auth_user"' - PARAMS = (); args=[]
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('auth', '0004_alter_user_username_opts', '2017-02-19 03:52:34.692862'); args=['auth', '0004_alter_user_username_opts', '2017-02-19 03:52:34.692862']
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+CREATE TABLE "auth_user__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "last_login" datetime NULL); (params None)
+(0.002) QUERY = 'CREATE TABLE "auth_user__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "last_login" datetime NULL)' - PARAMS = (); args=None
+INSERT INTO "auth_user__new" ("is_superuser", "is_active", "last_login", "email", "date_joined", "is_staff", "id", "first_name", "password", "last_name", "username") SELECT "is_superuser", "is_active", "last_login", "email", "date_joined", "is_staff", "id", "first_name", "password", "last_name", "username" FROM "auth_user"; (params [])
+(0.000) QUERY = 'INSERT INTO "auth_user__new" ("is_superuser", "is_active", "last_login", "email", "date_joined", "is_staff", "id", "first_name", "password", "last_name", "username") SELECT "is_superuser", "is_active", "last_login", "email", "date_joined", "is_staff", "id", "first_name", "password", "last_name", "username" FROM "auth_user"' - PARAMS = (); args=[]
+DROP TABLE "auth_user"; (params [])
+(0.000) QUERY = 'DROP TABLE "auth_user"' - PARAMS = (); args=[]
+ALTER TABLE "auth_user__new" RENAME TO "auth_user"; (params [])
+(0.000) QUERY = 'ALTER TABLE "auth_user__new" RENAME TO "auth_user"' - PARAMS = (); args=[]
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('auth', '0005_alter_user_last_login_null', '2017-02-19 03:52:34.815842'); args=['auth', '0005_alter_user_last_login_null', '2017-02-19 03:52:34.815842']
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('auth', '0006_require_contenttypes_0002', '2017-02-19 03:52:34.844541'); args=['auth', '0006_require_contenttypes_0002', '2017-02-19 03:52:34.844541']
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+CREATE TABLE "pagina_post" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "text" text NOT NULL, "created_date" datetime NOT NULL, "published_date" datetime NULL, "author_id" integer NOT NULL REFERENCES "auth_user" ("id")); (params None)
+(0.005) QUERY = 'CREATE TABLE "pagina_post" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "text" text NOT NULL, "created_date" datetime NOT NULL, "published_date" datetime NULL, "author_id" integer NOT NULL REFERENCES "auth_user" ("id"))' - PARAMS = (); args=None
+CREATE INDEX "pagina_post_4f331e2f" ON "pagina_post" ("author_id"); (params [])
+(0.000) QUERY = 'CREATE INDEX "pagina_post_4f331e2f" ON "pagina_post" ("author_id")' - PARAMS = (); args=[]
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('pagina', '0001_initial', '2017-02-19 03:52:34.959231'); args=['pagina', '0001_initial', '2017-02-19 03:52:34.959231']
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+CREATE TABLE "pagina_post__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "text" text NOT NULL, "created_date" datetime NOT NULL, "published_date" datetime NULL); (params None)
+(0.001) QUERY = 'CREATE TABLE "pagina_post__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "text" text NOT NULL, "created_date" datetime NOT NULL, "published_date" datetime NULL)' - PARAMS = (); args=None
+INSERT INTO "pagina_post__new" ("created_date", "id", "text", "title", "published_date") SELECT "created_date", "id", "text", "title", "published_date" FROM "pagina_post"; (params [])
+(0.000) QUERY = 'INSERT INTO "pagina_post__new" ("created_date", "id", "text", "title", "published_date") SELECT "created_date", "id", "text", "title", "published_date" FROM "pagina_post"' - PARAMS = (); args=[]
+DROP TABLE "pagina_post"; (params [])
+(0.000) QUERY = 'DROP TABLE "pagina_post"' - PARAMS = (); args=[]
+ALTER TABLE "pagina_post__new" RENAME TO "pagina_post"; (params [])
+(0.000) QUERY = 'ALTER TABLE "pagina_post__new" RENAME TO "pagina_post"' - PARAMS = (); args=[]
+DROP TABLE "pagina_post"; (params [])
+(0.001) QUERY = 'DROP TABLE "pagina_post"' - PARAMS = (); args=[]
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.001) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('pagina', '0002_auto_20170217_1902', '2017-02-19 03:52:35.132780'); args=['pagina', '0002_auto_20170217_1902', '2017-02-19 03:52:35.132780']
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" datetime NOT NULL); (params None)
+(0.010) QUERY = 'CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" datetime NOT NULL)' - PARAMS = (); args=None
+CREATE INDEX "django_session_de54fa62" ON "django_session" ("expire_date"); (params [])
+(0.000) QUERY = 'CREATE INDEX "django_session_de54fa62" ON "django_session" ("expire_date")' - PARAMS = (); args=[]
+(0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('sessions', '0001_initial', '2017-02-19 03:52:35.234296'); args=['sessions', '0001_initial', '2017-02-19 03:52:35.234296']
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('admin', 'logentry'); args=('admin', 'logentry')
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('admin', 'logentry'); args=('admin', 'logentry')
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('admin', 'logentry'); args=['admin', 'logentry']
+(0.000) QUERY = 'SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ( "auth_permission"."content_type_id" = "django_content_type"."id" ) WHERE "auth_permission"."content_type_id" IN (%s) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC' - PARAMS = (1,); args=(1,)
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.004) QUERY = 'INSERT INTO "auth_permission" ("name", "content_type_id", "codename") SELECT %s AS "name", %s AS "content_type_id", %s AS "codename" UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s' - PARAMS = ('Can add log entry', 1, 'add_logentry', 'Can change log entry', 1, 'change_logentry', 'Can delete log entry', 1, 'delete_logentry'); args=('Can add log entry', 1, 'add_logentry', 'Can change log entry', 1, 'change_logentry', 'Can delete log entry', 1, 'delete_logentry')
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = %s' - PARAMS = ('admin',); args=('admin',)
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('auth', 'permission'); args=('auth', 'permission')
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('auth', 'permission'); args=('auth', 'permission')
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('auth', 'permission'); args=['auth', 'permission']
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('auth', 'group'); args=('auth', 'group')
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('auth', 'group'); args=('auth', 'group')
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('auth', 'group'); args=['auth', 'group']
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('auth', 'user'); args=('auth', 'user')
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('auth', 'user'); args=('auth', 'user')
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('auth', 'user'); args=['auth', 'user']
+(0.000) QUERY = 'SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ( "auth_permission"."content_type_id" = "django_content_type"."id" ) WHERE "auth_permission"."content_type_id" IN (%s, %s, %s) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC' - PARAMS = (2, 3, 4); args=(2, 3, 4)
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.001) QUERY = 'INSERT INTO "auth_permission" ("name", "content_type_id", "codename") SELECT %s AS "name", %s AS "content_type_id", %s AS "codename" UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s' - PARAMS = ('Can add permission', 2, 'add_permission', 'Can change permission', 2, 'change_permission', 'Can delete permission', 2, 'delete_permission', 'Can add group', 3, 'add_group', 'Can change group', 3, 'change_group', 'Can delete group', 3, 'delete_group', 'Can add user', 4, 'add_user', 'Can change user', 4, 'change_user', 'Can delete user', 4, 'delete_user'); args=('Can add permission', 2, 'add_permission', 'Can change permission', 2, 'change_permission', 'Can delete permission', 2, 'delete_permission', 'Can add group', 3, 'add_group', 'Can change group', 3, 'change_group', 'Can delete group', 3, 'delete_group', 'Can add user', 4, 'add_user', 'Can change user', 4, 'change_user', 'Can delete user', 4, 'delete_user')
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = %s' - PARAMS = ('auth',); args=('auth',)
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('contenttypes', 'contenttype'); args=('contenttypes', 'contenttype')
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('contenttypes', 'contenttype'); args=('contenttypes', 'contenttype')
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.001) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('contenttypes', 'contenttype'); args=['contenttypes', 'contenttype']
+(0.000) QUERY = 'SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ( "auth_permission"."content_type_id" = "django_content_type"."id" ) WHERE "auth_permission"."content_type_id" IN (%s) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC' - PARAMS = (5,); args=(5,)
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "auth_permission" ("name", "content_type_id", "codename") SELECT %s AS "name", %s AS "content_type_id", %s AS "codename" UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s' - PARAMS = ('Can add content type', 5, 'add_contenttype', 'Can change content type', 5, 'change_contenttype', 'Can delete content type', 5, 'delete_contenttype'); args=('Can add content type', 5, 'add_contenttype', 'Can change content type', 5, 'change_contenttype', 'Can delete content type', 5, 'delete_contenttype')
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = %s' - PARAMS = ('contenttypes',); args=('contenttypes',)
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('sessions', 'session'); args=('sessions', 'session')
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('sessions', 'session'); args=('sessions', 'session')
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('sessions', 'session'); args=['sessions', 'session']
+(0.000) QUERY = 'SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ( "auth_permission"."content_type_id" = "django_content_type"."id" ) WHERE "auth_permission"."content_type_id" IN (%s) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC' - PARAMS = (6,); args=(6,)
+(0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+(0.000) QUERY = 'INSERT INTO "auth_permission" ("name", "content_type_id", "codename") SELECT %s AS "name", %s AS "content_type_id", %s AS "codename" UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s' - PARAMS = ('Can add session', 6, 'add_session', 'Can change session', 6, 'change_session', 'Can delete session', 6, 'delete_session'); args=('Can add session', 6, 'add_session', 'Can change session', 6, 'change_session', 'Can delete session', 6, 'delete_session')
+(0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = %s' - PARAMS = ('sessions',); args=('sessions',)
+(0.004) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.020) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+Not Found: /assets/img/logo.png
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+(0.013) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+Not Found: /assets/img/logo.png
+(0.004) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.001) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+(0.015) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.000) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+Not Found: /assets/img/logo.png
+Not Found: /favicon.ico
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+(0.022) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.005) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+Not Found: /assets/img/logo.png
+Not Found: /favicon.ico
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+(0.008) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+(0.001) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+Not Found: /assets/img/logo.png
+Not Found: /favicon.ico
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png
+Not Found: /assets/img/logo.png

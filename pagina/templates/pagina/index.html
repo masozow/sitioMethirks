@@ -10,13 +10,14 @@
   <meta name="keywords" content="methriks, Methriks, software, Software, Developer, Developers, developer, developers">
   <meta name="author" content="Bucky Maler">
   <link rel="stylesheet" href="{% static "css/main.css" %}"/>
+
 </head>
 <body>
 
-<!-- notification for small viewports and landscape oriented smartphones -->
+<!-- notificaion para orientacion de dispositivo -->
 <div class="device-notification">
   <a class="device-notification--logo" href="#0">
-    <img src="assets/img/logo.png" alt="Global">
+    <img src="assets/img/logo.png" >
     <p>Methriks</p>
   </a>
   <p class="device-notification--message">La orientación de tu dispositivo influye en como se ve el sitio web. </p>
@@ -28,8 +29,8 @@
       <div class="l-wrapper">
         <header class="header">
           <a class="header--logo" href="#0">
-            <img src="assets/img/logo.png" alt="Global">
-            <p>Global</p>
+            <img src="{% static 'img/logo.png' %}" alt="Global">
+
           </a>
           <button class="header--cta cta">Contáctanos</button>
           <div class="header--nav-toggle">
@@ -40,8 +41,8 @@
           <ul class="side-nav">
             <li class="is-active"><span>Inicio</span></li>
             <li><span>Servicios</span></li>
-            <li><span>Portafolio</span></li>
-            <li><span>Team</span></li>
+            <li><span>Eventos</span></li>
+            <li><span>Conocenos</span></li>
             <li><span>Contacto</span></li>
           </ul>
         </nav>
@@ -60,20 +61,17 @@
                 </button>
                 <img src="{% static 'img/introduction-visual.png' %}" alt="Bienvenido">
               </div>
-              <div class="intro--options">
+            <!--  <div class="intro--options">
                 <a href="#0">
-                  <h3>Metiew &amp; Smith</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+              <p>Tú aliado en formación tecnológica.<p>
                 </a>
                 <a href="#0">
-                  <h3>Fantasy interactive</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                  <p>Si deseas innovación, Methriks es la solución.</p>
                 </a>
                 <a href="#0">
-                  <h3>Paul &amp; shark</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                  <p>Methriks te abre las puertas a la tecnológia.</p>
                 </a>
-              </div>
+              </div>-->
             </div>
           </li>
           <li class="l-section section">
@@ -186,8 +184,11 @@
           <li class="l-section section">
             <div class="about">
               <div class="about--banner">
-                <h2>We<br>believe in<br>passionate<br>people</h2>
-                <a href="#0">Career
+                <!--Descripcion de eventos se cambiara a portafolio-->
+              <!--  <h2>We<br>believe in<br>passionate<br>people</h2>-->
+              <h2>Próximos<br>eventos</h2>
+              <p> Asiste a la conferencia gratuita este martes 21 <br>de febrero de 4:00 p.m. a 6:00 p.m. en la oficina <br>403, Torre Pradera Xela.</p>
+              <!--  <a href="#0">Career
                   <span>
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                     <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
@@ -195,10 +196,10 @@
                     </g>
                     </svg>
                   </span>
-                </a>
-                <img src="{% static 'img/about-visual.png' %}" alt="About Us">
+                </a>-->
+                <img src="{% static 'img/aviso.png' %}" alt="About Us">
               </div>
-              <div class="about--options">
+              <!--<div class="about--options">
                 <a href="#0">
                   <h3>Winners</h3>
                 </a>
@@ -209,21 +210,25 @@
                   <h3>History</h3>
                 </a>
               </div>
-            </div>
+            </div>-->
           </li>
           <li class="l-section section">
+            <div class="contact--lockup" id="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3856.5418593791906!2d-91.53749053559986!3d14.850948939643457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x858e981a17559ad3%3A0xf15eeefc274355e7!2sTorre+Pradera+Xela%2C+Quezaltenango!5e0!3m2!1ses!2sgt!4v1487542783682" width="1200" height="700" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+
             <div class="contact">
               <div class="contact--lockup">
                 <div class="modal">
                   <div class="modal--information">
-                    <p>Pawia 5, 31-154 Kraków, Poland</p>
-                    <a href="mailto:ouremail@gmail.com">ouremail@gmail.com</a>
-                    <a href="tel:+148126287560">+48 12 628 75 60</a>
+                    <p>Avenida las américas 7-62<br> zona 3, Torre Pradera Xela<br> 4to. Nivel, Oficina 403.</p>
+                    <a href="mailto:methrikssoftware@gmail.com">methrikssoftware@gmail.com</a>
+                    <a href="tel:+50279304424">+502 79304424</a>
                   </div>
                   <ul class="modal--options">
-                    <li><a href="#0">Bēhance</a></li>
-                    <li><a href="#0">dribbble</a></li>
-                    <li><a href="mailto:ouremail@gmail.com">Contact Us</a></li>
+                    <li><a href="https://www.facebook.com/Methriks">Facebook</a></li>
+
+
                   </ul>
                 </div>
               </div>
@@ -353,8 +358,8 @@
   <ul class="outer-nav">
     <li class="is-active">Inicio</li>
     <li>Servicios</li>
-    <li>Portafolio</li>
-    <li>Team</li>
+    <li>Eventos</li>
+    <li>Conocenos</li>
     <li>Contacto</li>
   </ul>
 </div>
@@ -370,7 +375,7 @@ $('#formulario_correo').on('submit', function(event){
   event.preventDefault();
   //obteniendo los valores de todos los checkbox checkeados
   var servicios_elegidos='';
-  $.each($("#formulario_correo :checked"), function(){            
+  $.each($("#formulario_correo :checked"), function(){
     servicios_elegidos+=$(this).val()+',';
   });
   console.log(servicios_elegidos);
@@ -382,7 +387,7 @@ $('#formulario_correo').on('submit', function(event){
     console.log($('#email').val());
     console.log($('#name_cliente').val());
     enviar_correo($('#email').val(),$('#name_cliente').val(),servicios_elegidos);
-  }  
+  }
 });
 
 function enviar_correo(email_cliente,nombre_cliente,servicios_cliente) {
@@ -403,5 +408,29 @@ function enviar_correo(email_cliente,nombre_cliente,servicios_cliente) {
   });
 };
 </script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+google.maps.event.addDomListener(window, 'load', init);
+
+function init() {
+var mapOptions = {
+zoom: 16,
+center: new google.maps.LatLng(14.851001, -91.535280), // torreparadera
+styles:[{"featureType":"water","elementType":"geometry","stylers":[{"color":"#333739"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#2ecc71"}]},{"featureType":"poi","stylers":[{"color":"#2ecc71"},{"lightness":-7}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#2ecc71"},{"lightness":-28}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#2ecc71"},{"visibility":"on"},{"lightness":-15}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#2ecc71"},{"lightness":-18}]},{"elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#2ecc71"},{"lightness":-34}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#333739"},{"weight":0.8}]},{"featureType":"poi.park","stylers":[{"color":"#2ecc71"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#333739"},{"weight":0.3},{"lightness":10}]}]
+};
+
+var mapElement = document.getElementById('map');
+
+var map = new google.maps.Map(mapElement, mapOptions);
+}
+</script>
+
+
 <script type="text/javascript" src="{% static 'js/token.js' %}"></script>
+
+
+
+
 </html>
